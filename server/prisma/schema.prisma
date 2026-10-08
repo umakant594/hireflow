@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("recruiter")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Job {
+  id          Int      @id @default(autoincrement())
+  title       String
+  department  String
+  location    String
+  employment  String
+  salary      String
+  description String
+  status      String   @default("Active")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Candidate {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  location    String?
+  experience  String?
+  skills      String
+  resumeUrl   String?
+  status      String   @default("Applied")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Application {
+  id          Int      @id @default(autoincrement())
+  candidateId Int
+  jobId       Int
+  stage       String   @default("Applied")
+  status      String   @default("Active")
+  appliedAt   DateTime @default(now())
+}
+
+model Interview {
+  id          Int      @id @default(autoincrement())
+  candidateId Int
+  jobId       Int
+  interviewer String
+  type        String
+  mode        String
+  scheduledAt DateTime
+  status      String   @default("Scheduled")
+  createdAt   DateTime @default(now())
+}

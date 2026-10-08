@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./src/app.tsx","./src/main.tsx","./src/server.ts","./src/middleware/auth.ts","./src/pages/applications.tsx","./src/pages/candidates.tsx","./src/pages/dashboard.tsx","./src/pages/interviews.tsx","./src/pages/jobs.tsx","./src/pages/login.tsx","./src/pages/settings.tsx","./src/routes/auth.ts","./src/services/api.ts"],"errors":true,"version":"6.0.3"}
